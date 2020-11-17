@@ -1,0 +1,21 @@
+{
+  "apps": [{
+    "name": "navbar",
+    "base": true,
+    "resourceEntryUrl": "app",
+    "resource": [
+      "manifest",
+      "vendor"
+    ]
+  }, {
+    "name": "program1",
+    "base": false,
+    "resourceEntryUrl": "app",
+    "resource": ["manifest", "vendor"]
+  }, {
+    "name": "program2",
+    "base": false,
+    "resourceEntryUrl": "app",
+    "resource": ["manifest", "vendor"]
+  }]
+}
