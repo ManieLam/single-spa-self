@@ -1,10 +1,10 @@
 {
-  "name": "vue-single-spa",
+  "name": "micro-fontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start:all": "npm-run-all --parallel start:*",
-    "start:main": "yarn start:vue && yarn start:serve && vue-cli-service serve --port 3200",
+    "start:main": "vue-cli-service serve --port 3200",
     "start:vue": "cd sub-projects && cd sub-app-vuejs && yarn start",
     "start:serve": "node ./serve/start.js",
     "build": "vue-cli-service build"

@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+/public/apps.config.json
 /dist
 /sub-projects/*/dist
 /sub-projects/*/build

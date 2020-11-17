@@ -16,7 +16,10 @@
 
 # 使用
 ### 运行主应用
+yarn start:vue
+yarn start:serve
 yarn start:main
+> TODO 使用npm-run-all 一键start所有命令
 
 ### 运行子应用vue项目
 yarn start:vue
