@@ -1,5 +1,5 @@
 {
-  "name": "vue-single-spa",
+  "name": "sub-app-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "server-dist": "node script/http-server.js dist 3100"
   },
-  "main": "dist/vue-single-spa-module.common.js",
+  "main": "dist/sub-app-vue-module.common.js",
   "files": [
     "dist"
   ],

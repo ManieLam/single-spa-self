@@ -31,6 +31,7 @@ const getManifest = (url, bundle) => new Promise(async (resolve) => {
         })
     }
 });
+// const getStaticManifest = (url, bundle) => new Promise()
 
 singleSpa.registerApplication( //注册微前端服务
     'singleDemo',
@@ -48,26 +49,38 @@ singleSpa.registerApplication( //注册微前端服务
     location => location.pathname.startsWith('/vue') // 配置微前端模块前缀
 );
 
-singleSpa.registerApplication(
-    'reactApp',
-    async () => {
-        await runScript('http://localhost:3001/static/js/main.js');
-        return window.reactApp;
-    },
-    location => location.pathname.startsWith('/react')
-);
+// singleSpa.registerApplication(
+//     'program2',
+//     async () => {
+//         await runScript('http://localhost:3040/program2/static/js/manifest.fba0f2e73f7230d4af58.js')
+//         await runScript('http://localhost:3040/program2/static/js/vendor.d017318ff782656b513f.js')
+//         await runScript('http://localhost:3040/program2/static/js/app.b01ff96a931cf0281074.js')
+//         return window.program2
+//     },
+//     location => location.pathname.startsWith('/program2')
+// )
 
-singleSpa.registerApplication(
-    'angular-app',
-    async () => {
-        await runScript('http://localhost:3002/inline.bundle.js');
-        await runScript('http://localhost:3002/polyfills.bundle.js');
-        await runScript('http://localhost:3002/styles.bundle.js');
-        await runScript('http://localhost:3002/vendor.bundle.js');
-        await runScript('http://localhost:3002/main.bundle.js');
-        return window.angularApp;
-    },
-    location => location.pathname.startsWith('/angular')
-);
+
+// singleSpa.registerApplication(
+//     'reactApp',
+//     async () => {
+//         await runScript('http://localhost:3001/static/js/main.js');
+//         return window.reactApp;
+//     },
+//     location => location.pathname.startsWith('/react')
+// );
+
+// singleSpa.registerApplication(
+//     'angular-app',
+//     async () => {
+//         await runScript('http://localhost:3002/inline.bundle.js');
+//         await runScript('http://localhost:3002/polyfills.bundle.js');
+//         await runScript('http://localhost:3002/styles.bundle.js');
+//         await runScript('http://localhost:3002/vendor.bundle.js');
+//         await runScript('http://localhost:3002/main.bundle.js');
+//         return window.angularApp;
+//     },
+//     location => location.pathname.startsWith('/angular')
+// );
 
 singleSpa.start(); // 启动

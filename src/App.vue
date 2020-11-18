@@ -9,27 +9,27 @@
             <span>Vue</span>
           </span>
           <a-menu-item key="1-1">
-            <a href="/vue#" @click="goToChildRoute">
+            <a href="/vue/#">
               Home
             </a>
           </a-menu-item>
           <a-menu-item key="1-2">
-            <a href="/vue#/about" @click="goToChildRoute">
+            <a href="/vue/#/about">
               About
             </a>
           </a-menu-item>
         </a-sub-menu>
         <a-menu-item key="2">
-          <router-link to="react">
+          <!-- <router-link to="react">
             <a-icon type="video-camera" />
             <span>React</span>
-          </router-link>
+          </router-link> -->
         </a-menu-item>
         <a-menu-item key="3">
-          <router-link to="angular">
+          <!-- <router-link to="angular">
             <a-icon type="video-camera" />
             <span>Angular</span>
-          </router-link>
+          </router-link> -->
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -55,18 +55,16 @@
               <a href="" @click="navigateTo">program1</a>
             </a-tooltip>
           </a-menu-item>
-          <a-menu-item key="3">
+          <!-- <a-menu-item key="3">
             nav 3
-          </a-menu-item>
+          </a-menu-item> -->
         </a-menu>
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
         <div>
-          <div id="react-app"></div>
           <div id="single-vue" class="single-spa-vue">
             <div id="vue"></div>
           </div>
-          <div id="angular-app"></div>
           <router-view :key="$route.path" />
         </div>
       </a-layout-content>
@@ -74,7 +72,7 @@
   </a-layout>
 </template>
 <script>
-  import { navigateToUrl } from 'single-spa';
+  // import { navigateToUrl } from 'single-spa';
   export default {
     data() {
       return {
@@ -85,7 +83,7 @@
       goToChildRoute(e) {
         // 官方指定跳转
         e.preventDefault();
-        navigateToUrl(e);
+        // navigateToUrl(e);
       },
       navigateTo () {
         window.open('http://localhost:3040/static', '_block') // 有效

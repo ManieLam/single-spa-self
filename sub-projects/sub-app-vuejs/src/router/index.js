@@ -18,11 +18,11 @@ const routes = [
     component: () => import('../views/About.vue')
   }
 ]
-const router = new VueRouter({
-  // 子项目设置history，base设置为父项目的一级路由。
-  base: '/vue/',
-  // mode: 'history',
-  routes
-})
+// const router = new VueRouter({
+//   // 子项目设置history，base设置为父项目的一级路由。
+//   base: '/vue/',
+//   // mode: 'history',
+//   routes
+// })
 
-export default router
+export default routes
