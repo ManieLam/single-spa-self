@@ -9,6 +9,7 @@ const microApps = [
     activeRule: '/vue'
   }
 ]
+console.log('store:', store)
 
 const apps = microApps.map(app => {
   return {
@@ -16,7 +17,8 @@ const apps = microApps.map(app => {
     container: '#single-vue',
     props: {
       routerBase: app.activeRule, // 下发基础路由
-      getGlobalState: store.getGlobalState // 下发getGlobalState方法
+      globalStore: store // 下发store，计划父-子，子-子交互
+      // getGlobalState: store.getGlobalState // 下发getGlobalState方法
     }
   }
 })

@@ -2,7 +2,7 @@ import { initGlobalState } from 'qiankun'
 import Vue from 'vue'
 const initialState = Vue.observable({
   user: {
-    name: '主应用数据啦啦啦啦啦'
+    name: '主应用数据之爸爸教你做人'
   }
 })
 
@@ -21,7 +21,7 @@ actions.onGlobalStateChange((newState, prev) => {
 actions.getGlobalState = (key) => {
   // 有key，表示取globalState下的某个子级对象
   // 无key，表示取全部
-
+  console.log('请求爸爸数据', initialState);
   return key ? initialState[key] : initialState
 }
 export default actions

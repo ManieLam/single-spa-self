@@ -7,7 +7,10 @@
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>当前应用的数据：{{curDatas}}</h3>
-    <h3>来自主应用的数据：{{$store.global}}</h3>
+    <h3>来自GlobalModule的数据：{{globalStoreDatas}}</h3>
+    <div>
+      <button type="primary" @click="changeParentData">反抗爸爸思想</button>
+    </div>
   </div>
 </template>
 
@@ -19,8 +22,27 @@ export default {
   },
   data () {
     return {
-      parentDatas: {},
-      curDatas: JSON.stringify(this.$store.state.global.user)
+      time: 0,
+      // curDatas: ''
+      curDatas: JSON.stringify(this.$store.state.user)
+    }
+  },
+  computed: {
+    globalStoreDatas () {
+      return JSON.stringify(this.$store.state.global)
+    }
+  },
+  methods: {
+    changeParentData () {
+      console.log('修改前：', this.$store);
+      ++this.time
+      this.$store.commit('global/setGlobalState', {
+        user: {
+          name: '我给爸爸身家整体替换',
+          time: `反抗次数${this.time}`
+        }
+      })
+      console.log('修改后:', this.$store.state.global)
     }
   }
 }

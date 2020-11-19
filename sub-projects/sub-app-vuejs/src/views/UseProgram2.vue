@@ -1,6 +1,7 @@
 <template>
   <div class="program2">
     <h3>如何在子应用vue中使用项目Program2的静态资源</h3>
+    <h4>请先确保program2项目服务运行中, 否则 yarn start:serve一下</h4>
     <iframe
       id="sub-program2"
       :key="renderTime"

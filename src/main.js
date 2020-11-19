@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+// import store from './store'
 import Ant from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 // import './single.spa.config.js' // 单纯使用single-spa框架的时候启用
@@ -12,26 +13,27 @@ Vue.use(Ant);
 
 new Vue({
   router,
+  // store,
   render: h => h(App)
 }).$mount('#app')
 
 registerMicroApps(microApps, {
   beforeLoad: app => {
-    console.log('before load app.name====>>>>>', app.name)
+    // console.log('before load app.name====>>>>>', app.name)
   },
   beforeMount: [
     app => {
-      console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name)
+      // console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name)
     }
   ],
   afterMount: [
     app => {
-      console.log('[LifeCycle] after mount %c%s', 'color: green;', app.name)
+      // console.log('[LifeCycle] after mount %c%s', 'color: green;', app.name)
     }
   ],
   afterUnmount: [
     app => {
-      console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name)
+      // console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name)
     }
   ]
 })

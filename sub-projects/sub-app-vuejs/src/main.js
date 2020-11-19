@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 import store from './store'
+import commonStore from '../../../common/store'
 
 Vue.config.productionTip = false
 
@@ -11,20 +12,13 @@ let vueOptions = null
 const isQiankun = window.__POWERED_BY_QIANKUN__
 
 function render (props = {}) {
-  const { container, routerBase, getGlobalState, onGlobalStateChange } = props
-  console.log('getGlobalState:', getGlobalState)
+  console.log('爸爸传回来的整副身家：', props)
+  const { container, routerBase, globalStore } = props
   const router = new VueRouter({
     base: isQiankun ? routerBase : '/vue',
     routes
   })
   const elContainer = container ? container.querySelector('#app') : '#app'
-  if (onGlobalStateChange) {
-    onGlobalStateChange((state, prev) => {
-      // state: 变更后的状态; prev 变更前的状态
-      console.log(state, prev);
-      store.commit('global/setGlobalState', state)
-    })
-  }
 
   vueOptions = {
     // el: "#vueApp",
@@ -36,14 +30,13 @@ function render (props = {}) {
 }
 
 if (!isQiankun) {
-  // 这里是子应用独立运行的环境，实现子应用的登录逻辑
-
+  // 这里是子应用独立运行的环境，比如实现子应用的登录逻辑
   // 独立运行时，也注册一个名为global的store module
-  // commonStore.globalRegister(store)
-  // 模拟登录后，存储用户信息到global module
-  const userInfo = { name: '我是独立运行时名字叫张三' } // 假设登录后取到的用户信息
-  store.commit('global/setGlobalState', userInfo)
-
+  commonStore.globalRegister(store)
+  // 存储独立数据，这里的globalModule，是同个common/store注册后的globalModule，相当于子应用里的globalModule
+  const userInfo = { name: '我是当子应用独立运行时的全局global数据' }
+  // console.info('独立的store：', store.state)
+  store.commit('global/setGlobalState', { user: userInfo })
   render()
 }
 
@@ -51,11 +44,13 @@ export async function bootstrap () {
   console.log('sub-app-vuejs bootstraped-----');
 }
 export async function mount (props) {
-  console.log('sub-app-vuejs mount------');
+  // console.log('sub-app-vuejs mount------');
+  // 注册共享storeModule，获取父、其他子的数据
+  commonStore.globalRegister(store, props.globalStore)
   render(props)
 }
 export async function unmount (props) {
-  console.log('sub-app-vuejs unmount-----');
+  // console.log('sub-app-vuejs unmount-----');
   delete vueOptions.el
   // instance.$destroy()
   // instance.$el.innerHTML = ''

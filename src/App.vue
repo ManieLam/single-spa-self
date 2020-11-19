@@ -55,9 +55,9 @@
               <a href="" @click="navigateTo">program1</a>
             </a-tooltip>
           </a-menu-item>
-          <!-- <a-menu-item key="3">
-            nav 3
-          </a-menu-item> -->
+          <a-menu-item key="3">
+            主应用数据 {{JSON.stringify(user)}}
+          </a-menu-item>
         </a-menu>
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
@@ -73,11 +73,17 @@
 </template>
 <script>
   // import { navigateToUrl } from 'single-spa';
+  import store from './store'
   export default {
     data() {
       return {
         collapsed: false,
       };
+    },
+    computed: {
+      user () {
+        return store.getGlobalState('user')
+      }
     },
     methods: {
       goToChildRoute(e) {
