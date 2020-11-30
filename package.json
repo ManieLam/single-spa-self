@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start:all": "npm-run-all --parallel start:*",
+    "start:all": "yarn start:vue | yarn start:serve | yarn start:main",
     "start:main": "vue-cli-service serve --port 3200",
     "start:vue": "cd sub-projects && cd sub-app-vuejs && yarn start",
     "start:serve": "node ./serve/start.js",
-    "build": "vue-cli-service build"
+    "build": "rm -r-f dist && vue-cli-service build",
+    "view:build": "npm run build && cd dist && http-server"
   },
   "dependencies": {
     "ant-design-vue": "^1.4.3",

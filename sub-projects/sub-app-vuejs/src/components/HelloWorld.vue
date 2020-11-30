@@ -38,8 +38,8 @@ export default {
       ++this.time
       this.$store.commit('global/setGlobalState', {
         user: {
-          name: '我给爸爸身家整体替换',
-          time: `反抗次数${this.time}`
+          name: '对父信息置换',
+          time: `次数${this.time}`
         }
       })
       console.log('修改后:', this.$store.state.global)

@@ -12,7 +12,7 @@ let vueOptions = null
 const isQiankun = window.__POWERED_BY_QIANKUN__
 
 function render (props = {}) {
-  console.log('爸爸传回来的整副身家：', props)
+  console.log('爸爸传回来的数据：', props)
   const { container, routerBase, globalStore } = props
   const router = new VueRouter({
     base: isQiankun ? routerBase : '/vue',

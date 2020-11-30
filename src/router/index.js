@@ -19,16 +19,11 @@ const routes = [
     path: '/react',
     name: 'react',
     component: () => import(/* webpackChunkName: "about" */ '../components/React')
-  },
-  {
-    path: '/angular',
-    name: 'angular',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Angular.vue')
-  },
-  {
-    path: '/program2',
-    name: 'program2',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Vue')
+  // },
+  // {
+  //   path: '/program2',
+  //   name: 'program2',
+  //   component: () => import(/* webpackChunkName: "about" */ '../components/Vue')
   }
 ]
 

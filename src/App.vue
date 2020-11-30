@@ -9,14 +9,15 @@
             <span>Vue</span>
           </span>
           <a-menu-item key="1-1">
-            <a href="/vue/#">
+            <router-link to="/vue/#">Home</router-link>
+            <!-- <a href="/vue/#">
               Home
-            </a>
+            </a> -->
           </a-menu-item>
           <a-menu-item key="1-2">
-            <a href="/vue/#/about">
+            <router-link to="/vue/#/about">
               About
-            </a>
+            </router-link>
           </a-menu-item>
         </a-sub-menu>
         <a-menu-item key="2">
