@@ -9,28 +9,25 @@
             <span>Vue</span>
           </span>
           <a-menu-item key="1-1">
-            <router-link to="/vue/#">Home</router-link>
-            <!-- <a href="/vue/#">
-              Home
-            </a> -->
+            <router-link to="/micrApp/vue">Home</router-link>
           </a-menu-item>
           <a-menu-item key="1-2">
-            <router-link to="/vue/#/about">
+            <router-link to="/micrApp/vue/about">
               About
             </router-link>
           </a-menu-item>
         </a-sub-menu>
         <a-menu-item key="2">
-          <!-- <router-link to="react">
+          <router-link to="/mainprogram">
             <a-icon type="video-camera" />
-            <span>React</span>
-          </router-link> -->
+            <span>mainprogram-level1</span>
+          </router-link>
         </a-menu-item>
         <a-menu-item key="3">
-          <!-- <router-link to="angular">
+          <router-link to="/mainprogram1">
             <a-icon type="video-camera" />
-            <span>Angular</span>
-          </router-link> -->
+            <span>mainprogram-level2</span>
+          </router-link>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -79,6 +76,23 @@
     data() {
       return {
         collapsed: false,
+        navList: [{
+          label: 'Vue',
+          icon: 'user',
+          child: [{
+            label: 'home',
+            link: '/micrApp/vue'
+          }, {
+            label: 'about',
+            link: '/micrApp/vue/about'
+          }]
+        }, {
+          label: 'mainprogram-level1',
+          link: '/mainprogram'
+        }, {
+          label: 'mainprogram-level2',
+          link: '/mainprogram1'
+        }]
       };
     },
     computed: {

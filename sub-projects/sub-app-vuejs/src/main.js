@@ -15,9 +15,20 @@ function render (props = {}) {
   console.log('爸爸传回来的数据：', props)
   const { container, routerBase, globalStore } = props
   const router = new VueRouter({
-    base: isQiankun ? routerBase : '/vue',
+    // base: isQiankun ? routerBase : '/vue', // 更换为history时开启
     routes
   })
+  if (isQiankun) {
+    router.beforeEach((to, from, next) => {
+      if (!to.path.includes('micrApp')) {
+        next({
+          path: '/micrApp/vue' + to.path
+        })
+      } else {
+        next()
+      }
+    })
+  }
   const elContainer = container ? container.querySelector('#app') : '#app'
 
   vueOptions = {

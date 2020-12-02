@@ -6,7 +6,8 @@ const microApps = [
     // entry: process.env.SUB_APP_VUE,
     entry: process.env.NODE_ENV === 'development' ? '//localhost:3000/' : '//192.168.56.1:3100/', // TODO 公共端口管理.env.development
     // activeRule: (location) => location.pathname.startsWith('/vue') // 如果采用函数，则子应用中的main.js需要同步修改
-    activeRule: '/vue'
+    activeRule: '/#/micrApp/vue'
+    // activeRule: '/vue'
   }
 ]
 
