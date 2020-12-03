@@ -29,6 +29,12 @@
             <span>mainprogram-level2</span>
           </router-link>
         </a-menu-item>
+        <a-menu-item key="4">
+          <router-link to="/program1">
+            <a-icon type="video-camera" />
+            <span>static-program1</span>
+          </router-link>
+        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -49,7 +55,7 @@
           </a-menu-item>
           <a-menu-item key="2">
             <a-tooltip>
-              <template slot="title">打开3040服务的子应用</template>
+              <template slot="title">打开静态资源3040服务的子应用</template>
               <a href="" @click="navigateTo">program1</a>
             </a-tooltip>
           </a-menu-item>

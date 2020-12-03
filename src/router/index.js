@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import micrApp from './micrApp'
 Vue.use(VueRouter)
 
 const routes = [
@@ -14,32 +14,21 @@ const routes = [
     }]
   },
   {
-    // 子项目history模式下，父项目的模糊匹配。不建议这样做
-    // path: '/vue*',
-    path: '/micrApp/vue',
-    name: 'vue',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Vue'),
-    meta: {
-      isMicrApp: true
-    }
-  },
-  {
-    // 针对path: '/micrApp/vue/*的匹配，不然会进到404
-    path: '/micrApp/vue/*',
-    hidden: true,
-    name: 'vue',
-    component: () => import(/* webpackChunkName: "about" */ '../components/Vue')
-  },
-  {
     path: '/mainprogram',
     name: 'mainprogram',
     component: () => import(/* webpackChunkName: "mainprogram1" */ '../components/mainprogram1')
   },
+  // {
+  //   path: '/program1',
+  //   redirect: 'http://localhost:3005/static/#/program1'
+  // },
   {
     path: '*',
-    component: () => import(/* webpackChunkName: "mainprogram1" */ '../views/404')
+    component: () => import(/* webpackChunkName: "notfound" */ '../views/404')
   }
-]
+].concat(
+  micrApp
+)
 
 const router = new VueRouter({
   // mode: 'history',

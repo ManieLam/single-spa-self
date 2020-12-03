@@ -3,7 +3,10 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 import store from './store'
-import commonStore from '../../../common/store'
+// import commonStore from '../../../common/store'
+const common = require('../../../common/')
+const commonStore = common.store
+const prefixRouterName = common.prefixRouteName
 
 Vue.config.productionTip = false
 
@@ -20,9 +23,10 @@ function render (props = {}) {
   })
   if (isQiankun) {
     router.beforeEach((to, from, next) => {
-      if (!to.path.includes('micrApp')) {
+      // 当作为子应用时，所有路由访问都是基于/prefixRouterName下的，自动加上前缀，防止应用内路由跳转异常
+      if (!to.path.includes(prefixRouterName)) {
         next({
-          path: '/micrApp/vue' + to.path
+          path: `/${prefixRouterName}/vue${to.path}`
         })
       } else {
         next()

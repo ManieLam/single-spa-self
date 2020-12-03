@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start:all": "yarn start:vue | yarn start:serve | yarn start:main",
-    "start:main": "vue-cli-service serve --port 3200",
+    "start:main": "vue-cli-service serve --port 3200 --open",
     "start:vue": "cd sub-projects && cd sub-app-vuejs && yarn start",
-    "start:serve": "node ./serve/start.js",
+    "start:serve": "set PORT=3005 && node ./serve/start.js",
     "build": "rm -r-f dist && vue-cli-service build",
     "view:build": "npm run build && cd dist && http-server"
   },
